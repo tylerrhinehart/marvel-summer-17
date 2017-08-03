@@ -31,6 +31,11 @@ function MarvelController() {
 
   }
 
-
-  service.search('', drawMarvel);
+  this.search = function (e) {
+    e.preventDefault()
+    console.log(e.target.name.value)
+    var character = e.target.name.value.toLowerCase()
+    service.search(character, drawMarvel)
+  }
+    service.search('', drawMarvel);
 }

@@ -1,5 +1,5 @@
 function MarvelService() {
-  var apiKey = "?apikey=e44062bbc76b37176b08325d5265a0f3";
+  var apiKey = "?apikey=d18db9539a5b05aead394fd46402d8d7";
   var baseUrl = "https://gateway.marvel.com:443/v1/public/characters";
 
   var marvelResults = []
@@ -7,14 +7,14 @@ function MarvelService() {
 
   this.search = function(query, cb) {
 
-    // TODO: GET NAME SEARCH WORKING?????
-    // if(query){
-    //   query = '/' + query
-    // }
-
+    if(query){
+      query = '?name=' + query + '&'
+      apiKey = 'apikey=d18db9539a5b05aead394fd46402d8d7'
+    }
     $.get(baseUrl + query + apiKey).then(function(res){
       marvelResults = res.data.results
       cb(res.data.results)
+      
     })
   }
 
